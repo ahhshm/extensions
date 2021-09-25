@@ -1,15 +1,15 @@
 local function update()
    -- in all the comments below, config means user config
-   local config_path = vim.fn.stdpath "config"
+   local config_path = vim.fn.stdpath "config/lua/custom/"
    local config_name = vim.g.nvchad_user_config or "chadrc"
-   local config_file = config_path .. "/lua/" .. config_name .. ".lua"
+   local config_file = config_path .. config_name .. ".lua"
    -- generate a random file name
-   local config_file_backup = config_path .. "/" .. config_name .. ".lua.bak." .. math.random()
+   local config_file_backup = config_path .. config_name .. ".lua.bak." .. math.random()
    local utils = require "nvchad"
    local echo = utils.echo
    local current_config = require("core.utils").load_config()
-   local update_url = current_config.options.update_url or "https://github.com/NvChad/NvChad"
-   local update_branch = current_config.options.update_branch or "main"
+   local update_url = current_config.options.nvChad.update_url or "https://github.com/NvChad/NvChad"
+   local update_branch = current_config.options.nvChad.update_branch or "main"
    local current_sha, backup_sha = "", ""
    local function restore_repo_state()
       -- on failing, restore to the last repo state, including untracked files
