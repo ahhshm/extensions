@@ -22,6 +22,29 @@ M.echo = function(opts)
    vim.api.nvim_echo(opts, false, {})
 end
 
+-- Ensure that chadrc exists, if it doesn't then copy the example chadrc
+M.ensure_chadrc_exists = function()
+   local config_path = vim.fn.stdpath "config/lua/custom/"
+   local config_name = vim.g.nvchad_user_config or "chadrc"
+   local config_file = config_path .. config_name .. ".lua"
+   local example_config_file = config_path .. "example_chadrc" .. ".lua"
+
+   if not vim.fn.filereadable(config_file) then
+      local cp_result = vim.fn.system("cp "
+         .. example_config_file
+         .. config_file
+      )
+
+      if vim.v.shell_error == 0 then
+         print("NvChad: 'custom/chadrc' was not found, so copied it 'custom/example_chadrc.lua' -> 'custom/chadrc.lua'")
+      else
+         print("NvChad: 'custom/chadrc' was not found & there was an error copying 'custom/example_chadrc.lua' -> 'custom/chadrc.lua'")
+      end
+    else
+       print("NvChad: there is no 'custom/chadrc.lua' file, and no 'custom/example_chadrc.lua' file to copy it from")
+    end
+end
+
 -- 1st arg - r or w
 -- 2nd arg - file path
 -- 3rd arg - content if 1st arg is w

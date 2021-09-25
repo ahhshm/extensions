@@ -33,6 +33,9 @@ local function update()
       end
    end
 
+   -- ensure we have a `chadrc` file
+   utils.ensure_chadrc_exists()
+
    -- first try to fetch contents of config, this will make sure it is readable and taking backup of its contents
    local config_contents = utils.file("r", config_file)
    -- also make a local backup in ~/.config/nvim, will be removed when config is succesfully restored
