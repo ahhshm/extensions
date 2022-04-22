@@ -124,6 +124,7 @@ end
 
 -- register term picker as terms to telescope
 local present, telescope = pcall(require, "telescope")
+
 if present then
    return telescope.register_extension {
       exports = {

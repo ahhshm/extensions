@@ -13,7 +13,6 @@ This repository contains the core utilities for [NvChad](https://github.com/NvCh
 │   │   ├── init.lua
 │   │   ├── reload_config.lua
 │   │   ├── reload_theme.lua
-│   │   └── update_nvchad.lua
 │   └── telescope
 │       └── _extensions
 │           ├── terms.lua

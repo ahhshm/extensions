@@ -128,7 +128,7 @@ local config_handler = function(config)
 end
 
 M.init = function()
-   local config = require("core.utils").load_config().options.terminal
+   local config = require("chadrc").terminal
    config_handler(config)
 end
 

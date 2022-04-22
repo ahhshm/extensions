@@ -101,7 +101,4 @@ end
 -- if no theme name given then reload the current theme
 M.reload_theme = require "nvchad.reload_theme"
 
--- update nvchad
-M.update_nvchad = require "nvchad.update_nvchad"
-
 return M

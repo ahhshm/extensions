@@ -20,7 +20,7 @@ local function reload_theme(theme_name)
 
    if not reload_plugin {
       "plugins.configs.bufferline",
-      "plugins.configs.statusline",
+      "plugins.configs.feline",
    } then
       print "Error: Not able to reload all plugins."
       return false
